@@ -6,7 +6,6 @@ public class TargetWaypointMover : MonoBehaviour
     [Header("Path")]
     [SerializeField] private Transform[] _waypoints;
     [SerializeField] private bool _loop = true;
-    [SerializeField] private bool pingPong = false;
 
     [Header("Move")]
     [SerializeField] private float _moveSpeed = 2.5f;
@@ -14,10 +13,10 @@ public class TargetWaypointMover : MonoBehaviour
     [SerializeField] private float _arriveDistance = 0.2f;
 
     [Header("Gravity")]
-    [SerializeField] private float _gravity = -20f; 
-    [SerializeField] private float _groundedStick = -2f; 
-    [SerializeField] private LayerMask _groundLayers = ~0; 
-    [SerializeField] private float _groundCheckOffset = 0.1f; 
+    [SerializeField] private float _gravity = -20f;
+    [SerializeField] private float _groundedStick = -2f;
+    [SerializeField] private LayerMask _groundLayers = ~0;
+    [SerializeField] private float _groundCheckOffset = 0.1f;
 
     [Header("Animation")]
     [SerializeField] private Animator _animator;
@@ -100,13 +99,8 @@ public class TargetWaypointMover : MonoBehaviour
 
     private void AdvanceIndex()
     {
-        //if (!pingPong)
-       // {
-            //_index++;
-            if (_index >= _waypoints.Length)
-                _index = _loop ? 0 : _waypoints.Length - 1;
-            //return;
-       // }
+        if (_index >= _waypoints.Length)
+            _index = _loop ? 0 : _waypoints.Length - 1;
 
         _index += _dir;
         if (_index >= _waypoints.Length)

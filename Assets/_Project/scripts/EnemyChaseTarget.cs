@@ -41,7 +41,7 @@ public class EnemyChaseTarget : MonoBehaviour
         {
             _animator?.SetFloat(_speedParam, 0f);
             _animator?.SetFloat(_motionSpeedParam, 0f);
-            
+
             _characterController.Move(Vector3.up * ( _verticalVelocity * Time.deltaTime ));
             return;
         }

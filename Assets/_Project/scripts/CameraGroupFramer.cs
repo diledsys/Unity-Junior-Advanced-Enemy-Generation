@@ -25,7 +25,7 @@ public class CameraGroupFramer : MonoBehaviour
     [SerializeField] private float _rotationSmoothTime = 0.18f;
 
     [Header("Camera Orbit / Angle")]
-    [SerializeField] private Vector3 _rigOffset = new Vector3(0, 0, 0); 
+    [SerializeField] private Vector3 _rigOffset = new Vector3(0, 0, 0);
     [SerializeField] private float _pitchDegrees = 35f;
     [SerializeField] private float _yawDegrees = 0f;
 
@@ -85,7 +85,7 @@ public class CameraGroupFramer : MonoBehaviour
 
     private float CalculateDistanceToFit(Bounds b)
     {
-       
+
         float fovRad = _cam.fieldOfView * Mathf.Deg2Rad;
         float halfFovTan = Mathf.Tan(fovRad * 0.5f);
 
