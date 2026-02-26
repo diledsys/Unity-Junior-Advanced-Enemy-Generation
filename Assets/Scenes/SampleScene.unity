@@ -5051,6 +5051,9 @@ MonoBehaviour:
   - {fileID: 19665020}
   - {fileID: 928507624}
   - {fileID: 2109854447}
+  - {fileID: 234176300}
+  - {fileID: 1387810519}
+  - {fileID: 845222621}
   _padding: 2
   _minDistance: 8
   _maxDistance: 60
