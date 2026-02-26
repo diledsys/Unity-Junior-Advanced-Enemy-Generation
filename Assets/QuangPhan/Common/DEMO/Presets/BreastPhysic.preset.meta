@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 79eabe635761d964bbd2098a439c6a71
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2655988077585873504
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302648
+  packageName: 'G2: Survival NPC 01'
+  packageVersion: 1.0
+  assetPath: Assets/QuangPhan/Common/DEMO/Presets/BreastPhysic.preset
+  uploadId: 708686

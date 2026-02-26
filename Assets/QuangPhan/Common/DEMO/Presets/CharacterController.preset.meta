@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7e11dfff0292881449c4b3caaeaa1f04
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302648
+  packageName: 'G2: Survival NPC 01'
+  packageVersion: 1.0
+  assetPath: Assets/QuangPhan/Common/DEMO/Presets/CharacterController.preset
+  uploadId: 708686

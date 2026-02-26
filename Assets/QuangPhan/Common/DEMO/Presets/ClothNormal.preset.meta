@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: beb23b0e640157040b32559a30da4952
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2655988077585873504
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302648
+  packageName: 'G2: Survival NPC 01'
+  packageVersion: 1.0
+  assetPath: Assets/QuangPhan/Common/DEMO/Presets/ClothNormal.preset
+  uploadId: 708686

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9119e65377cfb9047863e1c9af64d88c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302648
+  packageName: 'G2: Survival NPC 01'
+  packageVersion: 1.0
+  assetPath: Assets/QuangPhan/G2_SurvivalNPC_01/Scene/Overview/LightingData.asset
+  uploadId: 708686

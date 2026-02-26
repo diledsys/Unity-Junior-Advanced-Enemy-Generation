@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 192080dfdbe2559478bf9dffc3e0b393
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302648
+  packageName: 'G2: Survival NPC 01'
+  packageVersion: 1.0
+  assetPath: Assets/QuangPhan/Common/Scrips/DawnCamera.cs
+  uploadId: 708686

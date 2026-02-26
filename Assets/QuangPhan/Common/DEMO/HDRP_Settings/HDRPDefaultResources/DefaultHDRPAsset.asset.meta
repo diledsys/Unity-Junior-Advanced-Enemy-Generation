@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e93c35b24eb03c74284e7dc0b755bfcc
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302648
+  packageName: 'G2: Survival NPC 01'
+  packageVersion: 1.0
+  assetPath: Assets/QuangPhan/Common/DEMO/HDRP_Settings/HDRPDefaultResources/DefaultHDRPAsset.asset
+  uploadId: 708686

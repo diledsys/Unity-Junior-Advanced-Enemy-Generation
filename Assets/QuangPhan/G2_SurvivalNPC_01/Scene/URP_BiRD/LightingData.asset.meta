@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b1a8f34baaa44f64ab49d7182d9bb70e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302648
+  packageName: 'G2: Survival NPC 01'
+  packageVersion: 1.0
+  assetPath: Assets/QuangPhan/G2_SurvivalNPC_01/Scene/URP_BiRD/LightingData.asset
+  uploadId: 708686

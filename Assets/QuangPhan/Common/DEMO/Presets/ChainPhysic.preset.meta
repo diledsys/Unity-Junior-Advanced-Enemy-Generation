@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 66fee21b8d22e21419c546ddf310959b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2655988077585873504
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302648
+  packageName: 'G2: Survival NPC 01'
+  packageVersion: 1.0
+  assetPath: Assets/QuangPhan/Common/DEMO/Presets/ChainPhysic.preset
+  uploadId: 708686

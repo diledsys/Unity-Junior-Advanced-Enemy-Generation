@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 566407999c3515247a21f7e9bfed2b4a
+timeCreated: 1502451489
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302648
+  packageName: 'G2: Survival NPC 01'
+  packageVersion: 1.0
+  assetPath: Assets/QuangPhan/Common/DEMO/Animator/Lypsync1_M.controller
+  uploadId: 708686
