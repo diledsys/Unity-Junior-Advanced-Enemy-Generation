@@ -1,13 +1,22 @@
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TargetRegistry : MonoBehaviour
 {
-    [SerializeField] private CameraGroupFramer framer;
+    [SerializeField] private List<Transform> _targets = new();
 
-    private void Start()
+    public IReadOnlyList<Transform> Targets => _targets;
+
+    [ContextMenu("Auto Fill Targets From Scene (Editor Only)")]
+    private void AutoFill()
     {
-        var movers = FindObjectsOfType<TargetWaypointMover>();
-        framer.SetTargets(movers.Select(m => m.transform).ToList());
+        _targets.Clear();
+        var movers = FindObjectsByType<WaypointMoveProvider>(FindObjectsSortMode.None);
+        foreach (var m in movers)
+            _targets.Add(m.transform);
+
+#if UNITY_EDITOR
+        UnityEditor.EditorUtility.SetDirty(this);
+#endif
     }
 }

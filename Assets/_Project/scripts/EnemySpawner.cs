@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("What to spawn")]
-    [SerializeField] private EnemyChaseTarget enemyPrefab;
+    [SerializeField] private GameObject _enemyPrefab; // prefab ñ EnemyChaseTargetProvider + Motor + AnimatorDriver
 
     [Header("Where to go")]
     [SerializeField] private Transform _target;
@@ -21,9 +21,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (enemyPrefab == null || _target == null)
+        if (_enemyPrefab == null || _target == null)
             return;
-
         if (_alive >= _maxAlive)
             return;
 
@@ -37,30 +36,31 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnOne()
     {
-        Vector3 position = transform.position + Random.insideUnitSphere * _spawnRadius;
-        position.y = transform.position.y;
+        Vector3 pos = transform.position + Random.insideUnitSphere * _spawnRadius;
+        pos.y = transform.position.y;
 
-        EnemyChaseTarget enemy = Instantiate(enemyPrefab, position, transform.rotation);
-        enemy.SetTarget(_target);
+        GameObject enemyGo = Instantiate(_enemyPrefab, pos, transform.rotation);
+
+        var provider = enemyGo.GetComponent<EnemyChaseTargetProvider>();
+        if (provider != null)
+            provider.SetTarget(_target);
 
         _alive++;
 
-        Destroy(enemy.gameObject, _enemyLifetime);
+        var lifecycle = enemyGo.AddComponent<EnemyLifecycle>();
+        lifecycle.Destroyed += OnEnemyDestroyed;
 
-        var life = enemy.gameObject.AddComponent<SpawnedLifetimeHook>();
-        life.Init(this);
+        Destroy(enemyGo, _enemyLifetime);
     }
 
-    private class SpawnedLifetimeHook : MonoBehaviour
+    private void OnEnemyDestroyed()
     {
-        private EnemySpawner _spawner;
-
-        public void Init(EnemySpawner spawner) => _spawner = spawner;
-
-        private void OnDestroy()
-        {
-            if (_spawner != null)
-                _spawner._alive = Mathf.Max(0, _spawner._alive - 1);
-        }
+        _alive = Mathf.Max(0, _alive - 1);
     }
+}
+
+public class EnemyLifecycle : MonoBehaviour
+{
+    public event System.Action Destroyed;
+    private void OnDestroy() => Destroyed?.Invoke();
 }

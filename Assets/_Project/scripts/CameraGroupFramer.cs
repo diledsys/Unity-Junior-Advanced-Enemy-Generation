@@ -1,21 +1,21 @@
-using System.Collections.Generic;
+п»їusing System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
 public class CameraGroupFramer : MonoBehaviour
 {
     [Header("Targets")]
-    [SerializeField] private List<Transform> targets = new();
+    [SerializeField] private List<Transform> _targets = new();
 
     [Header("Framing")]
     [SerializeField] private float _padding = 2.0f;
     [SerializeField] private float _minDistance = 8f;
     [SerializeField] private float _maxDistance = 60f;
 
-    [Tooltip("Сдвиг точки фокуса вверх/вниз в мировых метрах. + вверх, - вниз.")]
+    [Tooltip("")]
     [SerializeField] private float _focusYOffset = 1.5f;
 
-    [Tooltip("Насколько сильно смещать группу вниз в экране (0..0.5). 0.15 обычно красиво.")]
+    [Tooltip(".")]
     [Range(0f, 0.5f)]
     [SerializeField] private float _screenBiasDown = 0.15f;
 
@@ -44,10 +44,10 @@ public class CameraGroupFramer : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (targets == null || targets.Count == 0)
+        if (_targets == null || _targets.Count == 0)
             return;
 
-        Bounds bounds = CalculateBounds(targets);
+        Bounds bounds = CalculateBounds(_targets);
         Vector3 focus = bounds.center + Vector3.up * _focusYOffset;
 
         focus += Vector3.up * ( bounds.extents.y * _screenBiasDown );
@@ -100,17 +100,17 @@ public class CameraGroupFramer : MonoBehaviour
         return Mathf.Max(neededByHeight, neededByWidth);
     }
 
-    public void SetTargets(List<Transform> newTargets) => targets = newTargets;
+    public void SetTargets(List<Transform> newTargets) => _targets = newTargets;
 
     public void AddTarget(Transform t)
     {
-        if (t != null && !targets.Contains(t))
-            targets.Add(t);
+        if (t != null && !_targets.Contains(t))
+            _targets.Add(t);
     }
 
     public void RemoveTarget(Transform t)
     {
         if (t != null)
-            targets.Remove(t);
+            _targets.Remove(t);
     }
 }
