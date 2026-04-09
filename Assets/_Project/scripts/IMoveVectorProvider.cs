@@ -8,5 +8,5 @@ public interface IMoveVectorProvider
 
     Vector3 LookDirection { get; }
     
-    float MoveIntensity01 { get; }
+    float MoveIntensity { get; }
 }

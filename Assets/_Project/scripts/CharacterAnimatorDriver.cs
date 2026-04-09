@@ -16,10 +16,12 @@ public class CharacterAnimatorDriver : MonoBehaviour
     {
         if (_animator == null)
             _animator = GetComponentInChildren<Animator>();
+
         if (_motor == null)
             _motor = GetComponent<CharacterMotorCC>();
 
         _provider = _providerBehaviour as IMoveVectorProvider;
+
         if (_provider == null)
             _provider = GetComponent<IMoveVectorProvider>();
     }
@@ -32,7 +34,7 @@ public class CharacterAnimatorDriver : MonoBehaviour
         Vector3 v = _motor.Velocity;
         float horizontalSpeed = new Vector3(v.x, 0f, v.z).magnitude;
 
-        float intensity01 = _provider != null ? Mathf.Clamp01(_provider.MoveIntensity01) : 0f;
+        float intensity01 = _provider != null ? Mathf.Clamp01(_provider.MoveIntensity) : 0f;
 
         _animator.SetFloat(_speedParam, horizontalSpeed);
         _animator.SetFloat(_motionSpeedParam, intensity01);

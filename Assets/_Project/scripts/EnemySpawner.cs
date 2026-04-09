@@ -23,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (_enemyPrefab == null || _target == null)
             return;
+
         if (_alive >= _maxAlive)
             return;
 
@@ -42,6 +43,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject enemyGo = Instantiate(_enemyPrefab, pos, transform.rotation);
 
         var provider = enemyGo.GetComponent<EnemyChaseTargetProvider>();
+
         if (provider != null)
             provider.SetTarget(_target);
 

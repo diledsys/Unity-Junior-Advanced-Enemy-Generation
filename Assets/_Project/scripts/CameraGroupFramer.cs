@@ -74,8 +74,10 @@ public class CameraGroupFramer : MonoBehaviour
         for (int i = 0; i < list.Count; i++)
         {
             Transform t = list[i];
+
             if (t == null)
                 continue;
+
             b.Encapsulate(t.position);
         }
 

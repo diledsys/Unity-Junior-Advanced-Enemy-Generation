@@ -12,6 +12,7 @@ public class TargetRegistry : MonoBehaviour
     {
         _targets.Clear();
         var movers = FindObjectsByType<WaypointMoveProvider>(FindObjectsSortMode.None);
+
         foreach (var m in movers)
             _targets.Add(m.transform);
 

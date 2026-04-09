@@ -13,13 +13,14 @@ public class WaypointMoveProvider : MonoBehaviour, IMoveVectorProvider
     private float _arriveDistanceSqr;
 
     public bool ShouldRotate => true;
-    public float MoveIntensity01 { get; private set; }
+    public float MoveIntensity { get; private set; }
 
     public Vector3 LookDirection
     {
         get
         {
             Transform wp = GetWaypoint(_index);
+
             if (wp == null)
                 return transform.forward;
 
@@ -37,18 +38,20 @@ public class WaypointMoveProvider : MonoBehaviour, IMoveVectorProvider
     public Vector3 GetDesiredHorizontalVelocity()
     {
         int count = GetWaypointCount();
+
         if (_pathRoot == null || count == 0)
         {
-            MoveIntensity01 = 0f;
+            MoveIntensity = 0f;
             return Vector3.zero;
         }
 
         _index %= count;
 
         Transform wp = GetWaypoint(_index);
+
         if (wp == null)
         {
-            MoveIntensity01 = 0f;
+            MoveIntensity = 0f;
             return Vector3.zero;
         }
 
@@ -58,12 +61,12 @@ public class WaypointMoveProvider : MonoBehaviour, IMoveVectorProvider
         if (to.sqrMagnitude <= _arriveDistanceSqr)
         {
             AdvanceIndex(count);
-            MoveIntensity01 = 0f;
+            MoveIntensity = 0f;
             return Vector3.zero;
         }
 
         Vector3 dir = to.normalized;
-        MoveIntensity01 = 1f;
+        MoveIntensity = 1f;
         return dir * _moveSpeed;
     }
 

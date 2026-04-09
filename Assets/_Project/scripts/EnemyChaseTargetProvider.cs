@@ -17,13 +17,14 @@ public class EnemyChaseTargetProvider : MonoBehaviour, IMoveVectorProvider
         {
             if (_target == null)
                 return transform.forward;
+
             Vector3 to = _target.position - transform.position;
             to.y = 0f;
             return to.sqrMagnitude > 0.0001f ? to : transform.forward;
         }
     }
 
-    public float MoveIntensity01 { get; private set; }
+    public float MoveIntensity { get; private set; }
 
     public void SetTarget(Transform target) => _target = target;
 
@@ -36,7 +37,7 @@ public class EnemyChaseTargetProvider : MonoBehaviour, IMoveVectorProvider
     {
         if (_target == null)
         {
-            MoveIntensity01 = 0f;
+            MoveIntensity = 0f;
             return Vector3.zero;
         }
 
@@ -45,12 +46,12 @@ public class EnemyChaseTargetProvider : MonoBehaviour, IMoveVectorProvider
 
         if (to.sqrMagnitude <= _stopDistanceSqr)
         {
-            MoveIntensity01 = 0f;
+            MoveIntensity = 0f;
             return Vector3.zero;
         }
 
         Vector3 dir = to.normalized;
-        MoveIntensity01 = 1f;
+        MoveIntensity = 1f;
         return dir * _moveSpeed;
     }
 }

@@ -7,8 +7,8 @@ public class CharacterMotorCC : MonoBehaviour
     [SerializeField] private float _turnSpeed = 14f;
 
     [Header("Gravity")]
-    [SerializeField] private float _gravity = -20f;           // ì/ñ^2
-    [SerializeField] private float _groundedStick = -2f;      // ì/ñ
+    [SerializeField] private float _gravity = -20f;
+    [SerializeField] private float _groundedStick = -2f;
     [SerializeField] private LayerMask _groundLayers = ~0;
     [SerializeField] private float _groundCheckOffset = 0.1f;
 
