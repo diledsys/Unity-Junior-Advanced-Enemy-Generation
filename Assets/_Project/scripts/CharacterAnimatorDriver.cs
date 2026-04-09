@@ -4,7 +4,7 @@ public class CharacterAnimatorDriver : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private CharacterMotorCC _motor;
-    [SerializeField] private MonoBehaviour _providerBehaviour; // сюда перетащи компонент-провайдер
+    [SerializeField] private MonoBehaviour _providerBehaviour;
 
     [Header("Params")]
     [SerializeField] private string _speedParam = "Speed";

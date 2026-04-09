@@ -28,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
             return;
 
         _timer -= Time.deltaTime;
+
         if (_timer > 0f)
             return;
 
