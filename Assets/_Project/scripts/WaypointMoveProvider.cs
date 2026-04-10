@@ -47,15 +47,15 @@ public class WaypointMoveProvider : MonoBehaviour, IMoveVectorProvider
 
         _index %= count;
 
-        Transform wp = GetWaypoint(_index);
+        Transform wayPoint = GetWaypoint(_index);
 
-        if (wp == null)
+        if (wayPoint == null)
         {
             MoveIntensity = 0f;
             return Vector3.zero;
         }
 
-        Vector3 to = wp.position - transform.position;
+        Vector3 to = wayPoint.position - transform.position;
         to.y = 0f;
 
         if (to.sqrMagnitude <= _arriveDistanceSqr)

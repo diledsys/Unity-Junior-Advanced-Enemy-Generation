@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyChaseTargetProvider : MonoBehaviour, IMoveVectorProvider
+public class ChaseTargetSteering : MonoBehaviour, IMoveVectorProvider
 {
     [Header("Chase")]
     [SerializeField] private float _moveSpeed = 3.5f;

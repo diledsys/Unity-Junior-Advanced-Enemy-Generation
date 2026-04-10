@@ -88,6 +88,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7189787408449103894}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4579701732823784342}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!1 &1355078109757053726 stripped
 GameObject:
@@ -153,8 +156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAnimatorDriver
   _animator: {fileID: 5721198960219495390}
-  _motor: {fileID: 4862558359354514901}
-  _providerBehaviour: {fileID: 7189787408449103894}
   _speedParam: Speed
   _motionSpeedParam: MotionSpeed
 --- !u!114 &7189787408449103894
@@ -171,6 +172,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChaseTargetProvider
   _moveSpeed: 3.5
   _stopDistance: 1.2
+--- !u!114 &4579701732823784342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355078109757053726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2de253b91ce70b4c821cb04d280901b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterAnimationPresenter
+  _motor: {fileID: 0}
+  _providerBehaviour: {fileID: 0}
 --- !u!95 &5721198960219495390 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6982812146204527121, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}

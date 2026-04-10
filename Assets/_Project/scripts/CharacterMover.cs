@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class CharacterMotorCC : MonoBehaviour
+public class CharacterMover : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float _turnSpeed = 14f;

@@ -311,8 +311,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAnimatorDriver
   _animator: {fileID: 45007213}
-  _motor: {fileID: 45007210}
-  _providerBehaviour: {fileID: 45007209}
   _speedParam: Speed
   _motionSpeedParam: MotionSpeed
 --- !u!143 &45007212
@@ -377,6 +375,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &45007216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45007208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2de253b91ce70b4c821cb04d280901b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterAnimationPresenter
+  _motor: {fileID: 0}
+  _providerBehaviour: {fileID: 0}
 --- !u!1 &226280477
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,9 +573,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7971d0d71d2024a4c8e989c5ddf99732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  _enemyPrefab: {fileID: 1355078109757053726, guid: 98d898db1d2ba944eaf4911a5d9b4e84, type: 3}
+  _enemyPrefab: {fileID: 7189787408449103894, guid: 98d898db1d2ba944eaf4911a5d9b4e84, type: 3}
   _target: {fileID: 45007214}
-  _spawnInterval: 2
+  _spawnInterval: 6
   _maxAlive: 3
   _spawnRadius: 10
   _enemyLifetime: 20
@@ -2118,12 +2130,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7971d0d71d2024a4c8e989c5ddf99732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  _enemyPrefab: {fileID: 1355078109757053726, guid: 98d898db1d2ba944eaf4911a5d9b4e84, type: 3}
+  _enemyPrefab: {fileID: 7189787408449103894, guid: 98d898db1d2ba944eaf4911a5d9b4e84, type: 3}
   _target: {fileID: 899524310}
-  _spawnInterval: 2
-  _maxAlive: 10
+  _spawnInterval: 5
+  _maxAlive: 4
   _spawnRadius: 0.5
-  _enemyLifetime: 20
+  _enemyLifetime: 17
 --- !u!1 &871312472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,6 +2348,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3091133245865691838, guid: f57d754530295c64896d47918045769b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 899524306}
+    - targetCorrespondingSourceObject: {fileID: 3091133245865691838, guid: f57d754530295c64896d47918045769b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 899524311}
   m_SourcePrefab: {fileID: 100100000, guid: f57d754530295c64896d47918045769b, type: 3}
 --- !u!1 &899524304 stripped
 GameObject:
@@ -2394,8 +2409,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAnimatorDriver
   _animator: {fileID: 899524305}
-  _motor: {fileID: 899524306}
-  _providerBehaviour: {fileID: 899524307}
   _speedParam: Speed
   _motionSpeedParam: MotionSpeed
 --- !u!143 &899524309
@@ -2428,6 +2441,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2426940900002877444, guid: f57d754530295c64896d47918045769b, type: 3}
   m_PrefabInstance: {fileID: 899524303}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &899524311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899524304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2de253b91ce70b4c821cb04d280901b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterAnimationPresenter
+  _motor: {fileID: 0}
+  _providerBehaviour: {fileID: 0}
 --- !u!1 &906414004
 GameObject:
   m_ObjectHideFlags: 0
@@ -3900,6 +3927,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1195530687407903399, guid: 298bd475ecdbc694b9169100ac27f680, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1390426836}
+    - targetCorrespondingSourceObject: {fileID: 1195530687407903399, guid: 298bd475ecdbc694b9169100ac27f680, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1390426840}
   m_SourcePrefab: {fileID: 100100000, guid: 298bd475ecdbc694b9169100ac27f680, type: 3}
 --- !u!4 &1390426833 stripped
 Transform:
@@ -3988,10 +4018,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAnimatorDriver
   _animator: {fileID: 1390426834}
-  _motor: {fileID: 1390426837}
-  _providerBehaviour: {fileID: 1390426836}
   _speedParam: Speed
   _motionSpeedParam: MotionSpeed
+--- !u!114 &1390426840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390426835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2de253b91ce70b4c821cb04d280901b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterAnimationPresenter
+  _motor: {fileID: 0}
+  _providerBehaviour: {fileID: 0}
 --- !u!1 &1412665039
 GameObject:
   m_ObjectHideFlags: 0
@@ -4133,6 +4175,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5943217512684508918, guid: ac7ad5e7645c26346b60345de135ffec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 45007215}
+    - targetCorrespondingSourceObject: {fileID: 5943217512684508918, guid: ac7ad5e7645c26346b60345de135ffec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 45007216}
   m_SourcePrefab: {fileID: 100100000, guid: ac7ad5e7645c26346b60345de135ffec, type: 3}
 --- !u!1 &1549818168
 GameObject:
@@ -5177,12 +5222,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7971d0d71d2024a4c8e989c5ddf99732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  _enemyPrefab: {fileID: 1355078109757053726, guid: 98d898db1d2ba944eaf4911a5d9b4e84, type: 3}
+  _enemyPrefab: {fileID: 7189787408449103894, guid: 98d898db1d2ba944eaf4911a5d9b4e84, type: 3}
   _target: {fileID: 1390426833}
-  _spawnInterval: 2
-  _maxAlive: 10
+  _spawnInterval: 7
+  _maxAlive: 5
   _spawnRadius: 0.5
-  _enemyLifetime: 20
+  _enemyLifetime: 15
 --- !u!1 &2146327361
 GameObject:
   m_ObjectHideFlags: 0

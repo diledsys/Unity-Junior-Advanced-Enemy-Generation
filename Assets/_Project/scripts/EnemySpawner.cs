@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     [Header("What to spawn")]
-    [SerializeField] private GameObject _enemyPrefab; // prefab ñ EnemyChaseTargetProvider + Motor + AnimatorDriver
+    [SerializeField] private ChaseTargetSteering _enemyPrefab;
 
     [Header("Where to go")]
     [SerializeField] private Transform _target;
@@ -16,10 +17,30 @@ public class EnemySpawner : MonoBehaviour
     [Header("Lifetime")]
     [SerializeField] private float _enemyLifetime = 20f;
 
-    private float _timer;
+    private Coroutine _spawnRoutine;
     private int _alive;
 
-    private void Update()
+    private void OnEnable()
+    {
+        _spawnRoutine = StartCoroutine(SpawnRoutine());
+    }
+
+    private void OnDisable()
+    {
+        if (_spawnRoutine != null)
+            StopCoroutine(_spawnRoutine);
+    }
+
+    private IEnumerator SpawnRoutine()
+    {
+        while (enabled)
+        {
+            TrySpawnOne();
+            yield return new WaitForSeconds(_spawnInterval);
+        }
+    }
+
+    private void TrySpawnOne()
     {
         if (_enemyPrefab == null || _target == null)
             return;
@@ -27,43 +48,27 @@ public class EnemySpawner : MonoBehaviour
         if (_alive >= _maxAlive)
             return;
 
-        _timer -= Time.deltaTime;
-
-        if (_timer > 0f)
-            return;
-
         SpawnOne();
-        _timer = _spawnInterval;
     }
 
     private void SpawnOne()
     {
-        Vector3 pos = transform.position + Random.insideUnitSphere * _spawnRadius;
-        pos.y = transform.position.y;
+        Vector3 position = transform.position + Random.insideUnitSphere * _spawnRadius;
+        position.y = transform.position.y;
 
-        GameObject enemyGo = Instantiate(_enemyPrefab, pos, transform.rotation);
-
-        var provider = enemyGo.GetComponent<EnemyChaseTargetProvider>();
-
-        if (provider != null)
-            provider.SetTarget(_target);
+        ChaseTargetSteering enemy = Instantiate(_enemyPrefab, position, transform.rotation);
+        enemy.SetTarget(_target);
 
         _alive++;
 
-        var lifecycle = enemyGo.AddComponent<EnemyLifecycle>();
+        EnemyLifecycle lifecycle = enemy.gameObject.AddComponent<EnemyLifecycle>();
         lifecycle.Destroyed += OnEnemyDestroyed;
 
-        Destroy(enemyGo, _enemyLifetime);
+        Destroy(enemy.gameObject, _enemyLifetime);
     }
 
     private void OnEnemyDestroyed()
     {
         _alive = Mathf.Max(0, _alive - 1);
     }
-}
-
-public class EnemyLifecycle : MonoBehaviour
-{
-    public event System.Action Destroyed;
-    private void OnDestroy() => Destroyed?.Invoke();
 }
